@@ -16,8 +16,15 @@ main(List<String> arguments) {
   int test = int.parse('12');
   print(test);
 
-  int err = int.parse('12.09', onError: (source) => 0);
-  print('err = ${err}');
+  //OnError is depreciated - https://docs.flutter.io/flutter/dart-core/int/parse.html
+  //int err = int.parse('12.09', onError: (source) => 0);
+  //print('err = ${err}');
+  
+  var err = int.tryParse('12.09');
+  if (err == null)
+  {
+    print('could not parse!);
+  }
 
   //math
   int dogyears = 7;
